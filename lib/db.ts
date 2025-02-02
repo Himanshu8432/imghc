@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const MONGODB_URL= process.env.MONGODB_URL! || 'mongodb://localhost:27017/your_db_name';
-
+console.log(MONGODB_URL);
 if(!MONGODB_URL){
     throw new Error('MONGODB_URL must be provided');
 }
@@ -23,6 +23,7 @@ export async function dbConnect(){
             useNewUrlParser: true,
             useUnifiedTopology: true,
         };
+        console.log("op")
         cached.promise = mongoose.connect(MONGODB_URL, opts).then((mongoose) => {
             return mongoose.connection;
         });
