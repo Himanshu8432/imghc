@@ -28,6 +28,7 @@ export async function dbConnect(){
             return mongoose.connection;
         });
     }
+    //not working
     try{
         cached.conn = await cached.promise;
     } catch(err){
